@@ -15,6 +15,7 @@ This module allows you to:
     'author': 'hamzbond',
     'website': 'https://hamzbond.github.io',
     'license': 'LGPL-3',
+    'images': ['static/description/banner.png'],
     'depends': [
         'base',
     ],
