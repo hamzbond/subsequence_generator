@@ -17,7 +17,6 @@ class IrSequenceSubsequenceWizard(models.TransientModel):
         ('monthly', 'Monthly')
     ], string='Interval', required=True, default='monthly')
 
-    @api.multi
     def action_generate(self):
         self.ensure_one()
         sequence_id = self.env.context.get('active_id')
