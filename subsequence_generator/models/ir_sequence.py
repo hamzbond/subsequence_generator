@@ -10,7 +10,7 @@ class IrSequence(models.Model):
         help='Technical field to indicate if this sequence has overlapping date ranges'
     )
 
-    @api.multi
+
     @api.depends('date_range_ids', 'date_range_ids.date_from', 'date_range_ids.date_to')
     def _compute_overlap_status(self):
         for seq in self:
@@ -26,7 +26,7 @@ class IrSequenceDateRange(models.Model):
         store=False
     )
 
-    @api.multi
+
     def _compute_is_overlapping(self):
         for rec in self:
             if not rec.date_from or not rec.date_to:
