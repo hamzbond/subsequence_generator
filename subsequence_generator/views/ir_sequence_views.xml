@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_sequence_view_form_inherit" model="ir.ui.view">
+        <field name="name">ir.sequence.view.form.inherit</field>
+        <field name="model">ir.sequence</field>
+        <field name="inherit_id" ref="base.sequence_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <field name="has_overlapping_ranges" invisible="1"/>
+                    <button name="%(subsequence_generator.action_ir_sequence_subsequence_wizard)d" string="Generate Subsequences" type="action" class="oe_highlight"/>
+                </header>
+                <div class="alert alert-danger" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('has_overlapping_ranges', '=', False)]}">
+                    <strong>Warning!</strong> This sequence has overlapping date ranges. This may cause unexpected sequence numbering.
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='date_range_ids']/tree" position="attributes">
+                <attribute name="decoration-danger">is_overlapping</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_range_ids']/tree" position="inside">
+                <field name="is_overlapping" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ir_sequence_view_tree_overlap" model="ir.ui.view">
+        <field name="name">ir.sequence.view.tree.overlap</field>
+        <field name="model">ir.sequence</field>
+        <field name="inherit_id" ref="base.sequence_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">has_overlapping_ranges</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="has_overlapping_ranges" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

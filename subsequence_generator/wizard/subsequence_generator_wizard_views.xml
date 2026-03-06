@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ir_sequence_subsequence_wizard_form" model="ir.ui.view">
+        <field name="name">ir.sequence.subsequence.wizard.form</field>
+        <field name="model">ir.sequence.subsequence.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Subsequences">
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <group>
+                        <field name="interval"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_generate" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ir_sequence_subsequence_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Subsequences</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.sequence.subsequence.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
