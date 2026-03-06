@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Subsequence Generator for Sequences',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'category': 'Technical',
     'summary': 'Add subsequence generation and overlapping range detection to sequences',
     'description': """
