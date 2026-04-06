@@ -1,39 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="ir_sequence_view_form_inherit" model="ir.ui.view">
-        <field name="name">ir.sequence.view.form.inherit</field>
-        <field name="model">ir.sequence</field>
-        <field name="inherit_id" ref="base.sequence_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//sheet" position="before">
-                <header>
-                    <field name="has_overlapping_ranges" invisible="1"/>
-                    <button name="%(subsequence_generator.action_ir_sequence_subsequence_wizard)d" string="Generate Subsequences" type="action" class="oe_highlight"/>
-                </header>
-                <div class="alert alert-danger" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('has_overlapping_ranges', '=', False)]}">
-                    <strong>Warning!</strong> This sequence has overlapping date ranges. This may cause unexpected sequence numbering.
-                </div>
-            </xpath>
-            <xpath expr="//field[@name='date_range_ids']/tree" position="attributes">
-                <attribute name="decoration-danger">is_overlapping</attribute>
-            </xpath>
-            <xpath expr="//field[@name='date_range_ids']/tree" position="inside">
-                <field name="is_overlapping" invisible="1"/>
-            </xpath>
-        </field>
-    </record>
+<section class="oe_container" style="font-family: 'Montserrat', sans-serif;">
+    <div class="oe_row oe_spaced" style="padding-top: 50px;">
+        <div class="oe_span12 text-center">
+            <h2 class="oe_slogan" style="color: #875A7B; font-size: 42px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px;">
+                Subsequence Generator
+            </h2>
+            <h3 class="oe_slogan" style="opacity: 0.8; font-size: 22px; font-weight: 400;">
+                Effortless Date Range Management with Smart Logic & Overlap Protection
+            </h3>
+            <div style="margin-top: 20px;">
+                <span class="badge badge-pill badge-primary" style="background-color: #875A7B; padding: 10px 20px; font-size: 14px;">Compatible with Odoo v11 - v19</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <record id="ir_sequence_view_tree_overlap" model="ir.ui.view">
-        <field name="name">ir.sequence.view.tree.overlap</field>
-        <field name="model">ir.sequence</field>
-        <field name="inherit_id" ref="base.sequence_view_tree"/>
-        <field name="arch" type="xml">
-            <xpath expr="//tree" position="attributes">
-                <attribute name="decoration-danger">has_overlapping_ranges</attribute>
-            </xpath>
-            <xpath expr="//tree" position="inside">
-                <field name="has_overlapping_ranges" invisible="1"/>
-            </xpath>
-        </field>
-    </record>
-</odoo>
+<section class="oe_container oe_dark" style="border-radius: 20px; margin: 20px 0;">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span6">
+            <div style="padding: 20px;">
+                <h3 style="color: #875A7B; font-weight: 700; margin-bottom: 20px;">Stop Manual Data Entry!</h3>
+                <p style="font-size: 17px; line-height: 1.6; text-align: justify; color: #444;">
+                    Managing date ranges for sequences (Invoices, SO, PO) can be a nightmare when done manually. One mistake in dates can lead to duplicate or broken sequence numbers.
+                </p>
+                <p style="font-size: 17px; line-height: 1.6; text-align: justify; color: #444;">
+                    <strong>Subsequence Generator</strong> automates this process. Generate monthly, weekly, or daily ranges in seconds with built-in intelligence to handle your numbering logic perfectly.
+                </p>
+            </div>
+        </div>
+        <div class="oe_span6">
+            <div class="text-center" style="background: linear-gradient(135deg, #875A7B 0%, #6c4762 100%); padding: 40px; border-radius: 15px; color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                <i class="fa fa-magic fa-4x mb-3"></i>
+                <h4 style="font-weight: bold; margin-top: 15px;">Smart Numbering Engine</h4>
+                <p style="font-size: 15px; opacity: 0.9;">System detects 'today' and continues your current sequence, while future ranges start fresh from number 1 automatically.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <h2 class="oe_slogan" style="font-weight: 800; color: #333; margin-bottom: 40px;">Why Choose This Module?</h2>
+        </div>
+        <div class="oe_span4 text-center">
+            <div style="background: #ffffff; padding: 30px; border-radius: 15px; border: 1px solid #eee; transition: all 0.3s; height: 100%;">
+                <div style="width: 70px; height: 70px; background: #f3eef2; border-radius: 50%; line-height: 70px; margin: 0 auto 20px;">
+                    <i class="fa fa-bolt fa-2x" style="color: #875A7B; vertical-align: middle;"></i>
+                </div>
+                <h4 style="font-weight: bold;">Instant Bulk Creation</h4>
+                <p style="color: #666;">Generate dozens of subsequences for an entire year in one click. Support for Daily, Weekly, and Monthly intervals.</p>
+            </div>
+        </div>
+        <div class="oe_span4 text-center">
+            <div style="background: #ffffff; padding: 30px; border-radius: 15px; border: 1px solid #eee; transition: all 0.3s; height: 100%;">
+                <div style="width: 70px; height: 70px; background: #fff1f0; border-radius: 50%; line-height: 70px; margin: 0 auto 20px;">
+                    <i class="fa fa-shield fa-2x" style="color: #d9534f; vertical-align: middle;"></i>
+                </div>
+                <h4 style="font-weight: bold;">Zero Conflict Policy</h4>
+                <p style="color: #666;">Sophisticated <b>Overlap Detector</b> logic identifies date conflicts in real-time, preventing sequence errors.</p>
+            </div>
+        </div>
+        <div class="oe_span4 text-center">
+            <div style="background: #ffffff; padding: 30px; border-radius: 15px; border: 1px solid #eee; transition: all 0.3s; height: 100%;">
+                <div style="width: 70px; height: 70px; background: #eef7f3; border-radius: 50%; line-height: 70px; margin: 0 auto 20px;">
+                    <i class="fa fa-eye fa-2x" style="color: #28a745; vertical-align: middle;"></i>
+                </div>
+                <h4 style="font-weight: bold;">Visual Warnings</h4>
+                <p style="color: #666;">Conflicting ranges are highlighted in <b>Red</b> with clear alerts on the form view for immediate action.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark" style="border-radius: 20px; padding: 40px 0;">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center">
+            <h2 style="font-weight: 800; color: #333; margin-bottom: 10px;">How It Works</h2>
+            <p style="font-size: 18px; color: #666; margin-bottom: 40px;">Three simple steps to automate your workflow</p>
+        </div>
+        <div class="oe_span4 text-center">
+            <span style="font-size: 50px; color: #875A7B; font-weight: 900; opacity: 0.2;">01</span>
+            <h5 style="font-weight: bold; margin-top: -25px;">Select Sequence</h5>
+            <p style="padding: 0 15px;">Open any sequence and look for the "Generate Subsequences" button.</p>
+        </div>
+        <div class="oe_span4 text-center">
+            <span style="font-size: 50px; color: #875A7B; font-weight: 900; opacity: 0.2;">02</span>
+            <h5 style="font-weight: bold; margin-top: -25px;">Configure Wizard</h5>
+            <p style="padding: 0 15px;">Set your date range and choose the interval (Daily/Weekly/Monthly).</p>
+        </div>
+        <div class="oe_span4 text-center">
+            <span style="font-size: 50px; color: #875A7B; font-weight: 900; opacity: 0.2;">03</span>
+            <h5 style="font-weight: bold; margin-top: -25px;">Auto-Generate</h5>
+            <p style="padding: 0 15px;">The system creates all ranges and handles the <b>Next Number</b> logic for you.</p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 text-center" style="padding: 50px 0;">
+            <h3 style="font-weight: bold;">Need Professional Support?</h3>
+            <p style="font-size: 16px; color: #666; margin-bottom: 30px;">We are ready to help you with customization or installation.</p>
+            <div class="mt-4">
+                <a href="mailto:info@hamzbond.com" class="btn btn-primary btn-lg" style="background-color: #875A7B; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold;">
+                    <i class="fa fa-envelope mr-2"></i> Contact Developer
+                </a>
+                <a href="https://hamzbond.github.io" target="_blank" class="btn btn-outline-dark btn-lg" style="padding: 15px 40px; border-radius: 50px; font-weight: bold; margin-left: 10px;">
+                    <i class="fa fa-globe mr-2"></i> Visit Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
